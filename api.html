@@ -40,6 +40,9 @@
             display: block;
             border-radius: 12px;
         }
+        .products img:hover {
+            box-shadow: 0.1px 0.1px 4px 4px white;
+        }
 
         .products h2,
         h3,
@@ -200,13 +203,109 @@
 
         @media only screen and (max-width: 800px) {
 
-            .nav__links,
-            .cta {
+            .nav__links {
                 display: none;
             }
 
             .menu {
                 display: initial;
+            }
+
+            .header-content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .cta,
+            .menu.cta {
+                padding: 8px 24px;
+                margin-top: 10px;
+                display: block;
+                margin-left: 26%;
+            }
+
+            .searchu {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-left: 0;
+                margin-top: 10px;
+
+            }
+
+            input[type="search"] {
+                padding: 5px;
+                border: none;
+                border-radius: 5px;
+                margin-left: 48%;
+                margin-bottom: 8px;
+
+            }
+
+            .fa-search.icon {
+                font-size: 20px;
+                color: #a5ed0a;
+                margin-left: 0;
+                margin-bottom: 8px;
+            }
+
+            header {
+                padding: 8px 5%;
+            }
+
+            .logo img {
+                max-width: 40px;
+                margin-left: 4em;
+            }
+
+            .overlay a {
+                font-size: 24px;
+            }
+
+            .searchu {
+                justify-content: center;
+            }
+
+            .descrip {
+                width: 100%;
+            }
+
+            .products h2,
+            .products h3,
+            .products h4 {
+                text-align: center;
+                font-size: 16px;
+                padding: 8px;
+                margin: 6px;
+                color: whitesmoke;
+            }
+
+            .products h2 {
+                font-size: 18px;
+            }
+
+            .products {
+                margin: 5px;
+                width: 80%;
+                margin-left: 12%;
+                margin-top: 15%;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .products img {
+                margin-left: 0.1%;
+                max-width: 100%;
+                margin-bottom: 10px;
+
+            }
+
+            .products button {
+                margin-left: 1%;
             }
         }
 
@@ -229,26 +328,28 @@
             margin-right: 2em;
         }
     </style>
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body onload="products(),countCart()">
 
 
     <header>
-        <a class="logo" href="api.html"><img src="logo.jpg" alt="logo"></a>
-        <nav>
-            <ul class="nav__links">
-                <li><a href="api.html">Home</a></li>
-                <li><a href="index.html">Login</a></li>
-            </ul>
-        </nav>
-        <div class="searchu">
-            <input type="search" id="search" placeholder="Write something" oninput="searchProducts()">
-            <i class="fa fa-search icon"></i>
+        <div class="header-content">
+            <a class="logo" href="api.html"><img src="logo.jpg" alt="logo"></a>
+            <nav>
+                <ul class="nav__links">
+                    <li><a href="api.html">Home</a></li>
+                    <li><a href="index.html">Login</a></li>
+                </ul>
+            </nav>
+            <div class="searchu">
+                <input type="search" id="search" placeholder="Write something" oninput="searchProducts()">
+                <i class="fa fa-search icon"></i>
+            </div>
+            <a class="cta" href="cart.html">Cart(<span class="num" id="numberOfCart"></span>)</a>
+            <p class="menu cta">Menu</p>
         </div>
-        <a class="cta" href="cart.html">Cart(<span class="num" id="numberOfCart"></span>)</a>
-        <p class="menu cta">Menu</p>
     </header>
     <div class="overlay">
         <a class="close">&times;</a>
@@ -317,7 +418,7 @@
             localStorage.setItem("id", id);
             window.location.href = "apidetails.html"
         }
-        
+
         function searchProducts() {
             var searchItem = document.getElementById("search").value.toLowerCase();
             var productsDiv = document.getElementById("result");
@@ -326,13 +427,25 @@
             for (i = 0; i < products.length; i++) {
                 var title = products[i].querySelector("h2").textContent.toLowerCase();
 
-                if (title.includes(searchItem)) {  // Change searchTerm to searchItem
+                if (title.includes(searchItem)) {
                     products[i].style.display = "block";
                 } else {
                     products[i].style.display = "none";
                 }
             }
         }
+        const doc = document;
+        const menuOpen = doc.querySelector(".menu");
+        const menuClose = doc.querySelector(".close");
+        const overlay = doc.querySelector(".overlay");
+
+        menuOpen.addEventListener("click", () => {
+            overlay.classList.add("overlay--active");
+        });
+
+        menuClose.addEventListener("click", () => {
+            overlay.classList.remove("overlay--active");
+        });
     </script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
