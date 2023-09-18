@@ -26,7 +26,7 @@
             border-radius: 10px;
             box-shadow: 2px 2px 4px 4px silver;
             background-color: #0e0e0eaf;
-            
+
         }
 
         label {
@@ -36,7 +36,7 @@
             font-size: 18px;
             text-decoration: underline;
             font-weight: bold;
-            
+
         }
 
 
@@ -69,9 +69,10 @@
             padding: 3px;
             color: white;
         }
-        p a{
+
+        p a {
             padding: 5px;
-        color: yellow;
+            color: yellow;
         }
 
         header {
@@ -80,17 +81,19 @@
             align-items: center;
             padding: 8px 10%;
             background-color: #24252a;
-            
+
         }
 
         .logo {
             cursor: pointer;
         }
-        .logo img{
+
+        .logo img {
             max-width: 50px;
             height: auto;
             border-radius: 50%;
         }
+
         .nav__links a,
         .cta,
         .overlay__content a {
@@ -98,13 +101,13 @@
             font-weight: 400;
             color: #edf0f1;
             text-decoration: none;
-           
+
         }
 
         .nav__links {
             list-style: none;
             display: flex;
-          
+
         }
 
         .nav__links li {
@@ -185,7 +188,7 @@
         }
 
         @media screen and (max-height: 450px) {
-          
+
             .overlay a {
                 font-size: 20px;
             }
@@ -198,17 +201,60 @@
         }
 
         @media only screen and (max-width: 800px) {
-           
-            .nav__links,
-            .cta {
+
+            body{
+                background-size: cover;
+                background-position: center;
+            }
+            .nav__links {
                 display: none;
             }
 
             .menu {
                 display: initial;
             }
+
+            .cta {
+                padding: 8px 15px;
+            }
+
+            header {
+                padding: 8px 5%;
+            }
+
+            .logo img {
+                max-width: 40px;
+            }
+
+            .overlay a {
+                font-size: 24px;
+            }
+
+          
+            input[type="text"],
+            input[type="email"],
+            input[type="number"],
+            input[type="password"] {
+                width: 100%;
+                padding: 8px;
+                margin-bottom: 10px;
+            }
+
+           
+            .main {
+                width: 80%;
+                margin-left: 10%;
+                margin-top: 25%;
+            }
+
+       
+            .regi {
+                font-size: 24px;
+            }
+
         }
-        .regi{
+
+        .regi {
             font-size: 28px;
             padding: 2px;
             margin: 8px;
@@ -233,7 +279,7 @@
         <a class="close">&times;</a>
         <div class="overlay__content">
             <a href="api.html">Home</a>
-            <a href="regitration.html">Register</a>
+            <a href="cart.html">Cart</a>
         </div>
     </div>
 
@@ -241,7 +287,7 @@
     <div class="main">
         <p class="regi">Registration</p>
         <form onsubmit="event.preventDefault(), save()">
-            
+
             <label for="name">Enter Your Name</label>
             <input type="text" id="name" placeholder="enter your name here" name="name" required>
             <label for="email">Enter your Email</label>
@@ -299,7 +345,7 @@
         menuClose.addEventListener("click", () => {
             overlay.classList.remove("overlay--active");
         });
-        
+
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
