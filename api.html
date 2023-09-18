@@ -78,6 +78,11 @@
             background-color: #24252ae1;
 
         }
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
 
         .logo {
             cursor: pointer;
@@ -122,18 +127,23 @@
         }
 
         .cta {
-            padding: 10px 35px;
+            padding: 8px 24px;
             background-color: rgba(0, 136, 169, 1);
             border: none;
             border-radius: 50px;
             cursor: pointer;
-            transition: background-color 0.3s ease 0s;
+            transition: background-color 0.3s ease 0s, color 0.3s ease 0s;
+            text-decoration: none;
+            color: #fff;
+            margin-left: 25%; 
+            margin-top: 1%;
         }
 
         .cta:hover {
             background-color: rgba(0, 136, 169, 0.8);
             color: yellow;
         }
+
 
         .num {
             color: yellow;
@@ -312,20 +322,21 @@
         .searchu {
             display: flex;
             align-items: center;
-            margin-left: auto;
         }
 
-        input[type="search"] {
-            padding: 5px;
-            border: none;
-            border-radius: 5px;
+        .searchu input[type="search"] {
+           margin-left: 110%;
+           margin-right: 5px;
+            border-radius: 8px;
+            padding: 6px 12px;
+            margin-top: 5%;
         }
-
-        .fa-search.icon {
-            font-size: 20px;
-            color: #a5ed0a;
-            margin-left: 5px;
-            margin-right: 2em;
+        .icon{
+            margin-right: 10px; /* Adjust margin as needed */
+            border-radius: 8px;
+            color: yellow;
+            margin-top: 5%;
+            cursor: pointer;
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
