@@ -6,17 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Cart</title>
     <style>
-        *{
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
             background-image: url(image5.jpg);
             background-size: cover;
         }
 
-        /* Style the table */
         .tably table {
             width: 80%;
             margin-left: 10%;
@@ -32,27 +32,23 @@
             border: 2px solid #ccc;
         }
 
-        /* Style table header */
         .tably th {
             background-color: #f2f2f2e2;
             text-align: center;
             padding: 10px;
         }
 
-        /* Style table data */
         .tably td {
             text-align: left;
             padding: 10px;
         }
 
-        /* Style the image */
         .tably img {
             max-width: 100px;
             height: auto;
             border-radius: 8px;
         }
 
-        /* Style buttons */
         .tably button {
             padding: 8px 24px;
             background-color: #007bff;
@@ -66,17 +62,16 @@
             color: black;
             background-color: yellow;
         }
-        .paynow{
+
+        .paynow {
             margin-left: 38%;
         }
 
-        /* Style the total amount */
         #amount {
             font-weight: bold;
             font-size: 18px;
         }
 
-        /* Center align the "Pay Now" button and total amount */
         .tably td[colspan='2'] {
             text-align: center;
         }
@@ -144,7 +139,7 @@
             background-color: rgba(0, 136, 169, 0.8);
             color: yellow;
         }
-       
+
         .num {
             color: yellow;
             padding: 4%;
@@ -213,15 +208,56 @@
 
         @media only screen and (max-width: 800px) {
 
-            .nav__links,
-            .cta {
+            .nav__links {
                 display: none;
             }
 
             .menu {
                 display: initial;
             }
+
+            .cta {
+                padding: 8px 15px;
+            }
+
+            .searchu {
+                margin-left: 0;
+            }
+
+            header {
+                padding: 8px 5%;
+            }
+
+            .logo img {
+                max-width: 40px;
+            }
+
+            .overlay a {
+                font-size: 24px;
+            }
+
+            .tably table {
+                width: 50%;
+                margin-left: 3%;
+            }
+            .paynow{
+                margin-left: 10%;
+                font-size: 12px;
+            }
+            .tably button{
+                padding: 6px 12px;
+                margin-top: 2px;
+            }
+            .tably th,
+            .tably td {
+                font-size: 12px;
+                padding: 5px;
+            }
+            .tably img{
+                width: 4em;
+            }
         }
+
         .back {
             margin: 15px;
             padding: 8px 25px;
@@ -276,13 +312,13 @@
             var numberOfCartElement = document.getElementById("numberOfCart");
             if (localStorage.getItem("newcarts")) {
                 var newcarts = JSON.parse(localStorage.getItem("newcarts"));
-                var length = newcarts.length;   //to find out the length
+                var length = newcarts.length;
 
                 if (length > 0) {
                     var temp = "";
-                    temp +=  "<br>";
+                    temp += "<br>";
 
-                    // check-cart id is available in the products or not 
+
                     $.ajax({
                         url: "https://dummyjson.com/products",
                         method: "get",
@@ -315,7 +351,7 @@
                                     }
                                 }
                                 if (flag == 1) {
-                                    //temp += products[i].title+"<br>";
+
                                     temp += "<tr>";
                                     temp += "<th><img src=" + products[i].thumbnail + "></th>";
                                     temp += "<th>" + products[i].title + "</th>";
@@ -428,6 +464,18 @@
             var rzp1 = new Razorpay(options);
             rzp1.open();
         }
+        const doc = document;
+        const menuOpen = doc.querySelector(".menu");
+        const menuClose = doc.querySelector(".close");
+        const overlay = doc.querySelector(".overlay");
+
+        menuOpen.addEventListener("click", () => {
+            overlay.classList.add("overlay--active");
+        });
+
+        menuClose.addEventListener("click", () => {
+            overlay.classList.remove("overlay--active");
+        });
 
     </script>
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"
