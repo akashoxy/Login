@@ -212,14 +212,73 @@
 
         @media only screen and (max-width: 800px) {
 
-            .nav__links,
-            .cta {
+            .nav__links {
                 display: none;
             }
 
             .menu {
                 display: initial;
             }
+
+            .cta {
+                padding: 8px 15px;
+            }
+
+            .searchu {
+                margin-left: 0;
+                /* Remove the margin to align the search bar to the left */
+            }
+
+            header {
+                padding: 8px 5%;
+                /* Adjust header padding for smaller screens */
+            }
+
+            .logo img {
+                max-width: 40px;
+                /* Resize the logo for smaller screens */
+            }
+
+            .overlay a {
+                font-size: 24px;
+                /* Adjust the font size of overlay links */
+            }
+
+            .searchu {
+                justify-content: center;
+            }
+
+            .products h2,
+            .products h3,
+            .products h4,
+            .products p {
+                text-align: center;
+                font-size: 16px;
+                padding: 8px;
+                margin: 6px;
+                color: whitesmoke;
+            }
+
+            /* Example: Increase the font size of headings */
+            .products h2 {
+                font-size: 18px;
+            }
+
+            /* Example: Adjust the spacing of product elements */
+            .products {
+                margin: 5px;
+                width: 80%;
+                margin-left: 12%;
+                margin-top: 15%;
+            }
+            .products img{
+                width: 40%;
+
+            }
+            .products button{
+                margin-left: 28%;
+            }
+
         }
 
         .back {
@@ -240,9 +299,8 @@
             background-color: orange;
             box-shadow: 2px 2px 2px 8px red;
         }
-
     </style>
-   
+
 </head>
 
 <body onload="viewMore(),countCart()">
@@ -333,6 +391,18 @@
                 document.getElementById("numberOfCart").innerHTML = 0;
             }
         }
+        const doc = document;
+        const menuOpen = doc.querySelector(".menu");
+        const menuClose = doc.querySelector(".close");
+        const overlay = doc.querySelector(".overlay");
+
+        menuOpen.addEventListener("click", () => {
+            overlay.classList.add("overlay--active");
+        });
+
+        menuClose.addEventListener("click", () => {
+            overlay.classList.remove("overlay--active");
+        });
     </script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
