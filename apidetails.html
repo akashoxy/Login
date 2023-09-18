@@ -226,26 +226,26 @@
 
             .searchu {
                 margin-left: 0;
-                /* Remove the margin to align the search bar to the left */
             }
 
             header {
                 padding: 8px 5%;
-                /* Adjust header padding for smaller screens */
             }
 
             .logo img {
                 max-width: 40px;
-                /* Resize the logo for smaller screens */
             }
 
             .overlay a {
                 font-size: 24px;
-                /* Adjust the font size of overlay links */
             }
 
             .searchu {
                 justify-content: center;
+            }
+
+            .descrip {
+                width: 100%;
             }
 
             .products h2,
@@ -259,24 +259,29 @@
                 color: whitesmoke;
             }
 
-            /* Example: Increase the font size of headings */
             .products h2 {
                 font-size: 18px;
             }
 
-            /* Example: Adjust the spacing of product elements */
             .products {
                 margin: 5px;
                 width: 80%;
                 margin-left: 12%;
                 margin-top: 15%;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
             }
-            .products img{
-                width: 40%;
+
+            .products img {
+                margin-left: 10%;
+                max-width: 100%;
+                margin-bottom: 10px;
 
             }
-            .products button{
-                margin-left: 28%;
+
+            .products button {
+                margin-left: 1%;
             }
 
         }
@@ -378,7 +383,7 @@
 
                 localStorage.setItem("newcarts", JSON.stringify(newcarts));
                 alert("Product has been added to the cart.");
-                cartCount(); // Assuming you have a cartCount() function to update the cart count display.
+                cartCount(); 
             }
         }
         function countCart() {
