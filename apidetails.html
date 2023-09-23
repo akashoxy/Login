@@ -36,7 +36,7 @@
 
         .products img {
 
-            max-width: 400px;
+            max-width: 300px;
             height: auto;
             margin-right: 20px;
             border-radius: 10px;
@@ -376,13 +376,15 @@
 
                 if (existingCartIndex !== -1) {
                     newcarts[existingCartIndex].quantity += 1;
+                    alert("Product is already in the cart quantity has been increased");
                 } else {
                     var cart = { "id": id, "quantity": 1 };
                     newcarts.push(cart);
+                    alert("Product has been added to the cart.");
                 }
 
                 localStorage.setItem("newcarts", JSON.stringify(newcarts));
-                alert("Product has been added to the cart.");
+                
                 cartCount(); 
             }
         }
